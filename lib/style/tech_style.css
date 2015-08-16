@@ -1,0 +1,201 @@
+.instagram-unit{width:25%;
+  padding: inherit !important;
+  display: inline-block;
+  margin: 0px !important;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  }
+img {max-width:100%;}
+
+
+
+.techinstagram_fixed_width {  overflow-x: hidden; }
+
+.techinstagram-header {
+    background-color: #dd5454;
+}
+
+.techinstagram a {
+    /* border: 0; */
+    /* outline: 0; */
+    text-decoration: none;
+}
+
+.techinstagram-header {
+    display: block;
+     position: relative; 
+    border-bottom: none !important;
+    box-shadow: inset 0 0 100px rgba(255, 255, 255, 0), 0 1px 0 0 rgba(0, 0, 0, 0.05);
+    background: #285989;
+    text-decoration: none;
+    transition: all .3s ease;
+}
+
+.techinstagram * {
+    /* margin: 0; */
+    padding: 0;
+}
+
+
+.entry-content a img, .entry-summary a img, .page-content a img, .comment-content a img {
+    display: block;
+}
+
+
+.techinstagram img, .techinstagram a img {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+}
+
+
+.techinstagram-header-pic {
+    display: block;
+    float: left;
+    width: 34px;
+    height: 34px;
+}
+
+.techinstagram-header-name, a.techinstagram-panel-subscribe {
+    color: #fff;
+}
+
+.techinstagram-header-name {
+    display: block;
+   /*float: left;*/
+    overflow: hidden;
+    width: 70%;
+    margin-left: 46px;
+    white-space: nowrap;
+    text-transform: uppercase;
+    text-overflow: ellipsis;
+    line-height: 34px;
+    font-weight: bold;
+    font-size: 14px;
+    color: #fff;
+}
+
+.techinstagram-header-logo {
+    display: block;
+    position: absolute;
+    top: 8px;
+    right: 12px;
+    width: 18px;
+    height: 18px;
+    background: url('../images/instagram-logo.png') no-repeat;
+}
+
+
+.techinstagram-panel {
+    padding: 10px 0;
+   
+}
+
+
+.techinstagram-panel-counter {
+    display: block;
+    float: left;
+    width: 54px;
+    text-align: center;
+}
+
+.techinstagram-panel-counter-value {
+    display: block;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 13px;
+}
+
+
+.techinstagram-panel-counter-label {
+    display: block;
+    overflow: hidden;
+    width: 54px;
+    margin-top: 2px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: #727272;
+}
+
+
+.techinstagram-panel-counter {
+    display: block;
+    float: left;
+    width: 54px;
+    text-align: center;
+}
+
+
+.techinstagram-panel-counter-value {
+    display: block;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 13px;
+}
+
+.techinstagram-panel-counter-label {
+    display: block;
+    overflow: hidden;
+    width: 54px;
+    margin-top: 2px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: #727272;
+	font: 400 11px/1.2 Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -webkit-user-select: none;
+}
+
+
+.techinstagram-panel-counter {
+    display: block;
+    float: left;
+    width: 54px;
+    text-align: center;
+}
+
+.techinstagram-panel-counter-value {
+    display: block;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 13px;
+}
+
+.techinstagram-panel-counter-label {
+    display: block;
+    overflow: hidden;
+    width: 54px;
+    margin-top: 2px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: #727272;
+	font: 400 11px/1.2 Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -webkit-user-select: none;
+}
+
+
+.subscribe {
+    color: #fff;
+}
+
+
+
+
+.techinstagram-panel-subscribe {
+    display: inline-block;
+    float: right;
+    margin-right: 11px;
+    padding: 8px 12px;
+    border-radius: 3px;
+    box-shadow: inset 0 0 100px rgba(255, 255, 255, 0);
+    background: #285989;
+    text-decoration: none;
+    color: #fff;
+    transition: all .3s ease;
+	 color: #727272;
+	font: 400 11px/1.2 Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -webkit-user-select: none;
+}
