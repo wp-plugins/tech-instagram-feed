@@ -2,7 +2,7 @@
 /*
 Plugin Name: Tech Instagram Feed
 Description: This plugin allows to fetch the instagram media in your wordpress site.
-Version: 1.0
+Version: 1.1
 Author: Techvers
 Author URI: http://techvers.com/
 License: GPLv2 or later
@@ -113,6 +113,11 @@ $tech_settings['tech_feed_width_unit'] = $_POST['tech_feed_width_unit'];
 $tech_settings['tech_feed_height'] = $_POST['tech_feed_height'];
 $tech_settings['tech_feed_height_unit'] = $_POST['tech_feed_height_unit'];
 $tech_settings['tech_feed_background_color'] = $_POST['tech_feed_background_color'];
+$tech_settings['tech_feed_number_feeds'] = $_POST['tech_feed_number_feeds'];
+if (isset($_POST['sortby'])){	
+ 
+  $tech_settings['tech_feed_sortby'] = $_POST['sortby'] ;
+}
 update_option('tech_settings',$tech_settings);	
 
 	
@@ -120,11 +125,12 @@ update_option('tech_settings',$tech_settings);
 //#0573c6
 
    ?>
-   <h2>Customize Feed Area</h2>
+  
 <form name="custom_form" method="post"><?php $tech_settings = get_option('tech_settings'); 
 //print_r($tech_settings);
 //wp_die();
 ?>
+ <h2>Customize Feed Area and Photos</h2>
     <table class="form-table">
 		
         <tr valign="top">
@@ -136,6 +142,10 @@ update_option('tech_settings',$tech_settings);
                     <option value="%" <?php if($tech_settings['tech_feed_width_unit'] == "%") echo 'selected="selected"' ?> ><?php _e('%'); ?></option>
                 </select>
             </td>
+			<th scope="row"><label>Sort By:</label></th>
+            <td><input type="radio"  name="sortby" value="nosort" <?php if($tech_settings['tech_feed_sortby']=='nosort'){echo 'checked';}?>>Newest to oldest</td> 
+			<td><input type="radio"  name="sortby" value="random"<?php if($tech_settings['tech_feed_sortby']=='random'){echo 'checked';}?>>Random</td>
+			<td><input type="radio" name="sortby" value="oldest"<?php if($tech_settings['tech_feed_sortby']=='oldest'){echo 'checked';}?>> Oldest to newest</td>
         </tr>
          
         <tr valign="top">
@@ -147,6 +157,8 @@ update_option('tech_settings',$tech_settings);
                     <option value="%" <?php if($tech_settings['tech_feed_height_unit'] == "%") echo 'selected="selected"' ?> ><?php _e('%'); ?></option>
                 </select>
             </td>
+			<th scope="row"></label>Number of feeds:</label></th>
+			<td><input type="text" name="tech_feed_number_feeds" value="<?php esc_attr_e($tech_settings['tech_feed_number_feeds']); ?>">
         </tr>
         
         <tr valign="top">
@@ -158,6 +170,8 @@ update_option('tech_settings',$tech_settings);
 		
        
     </table>
+	
+	 
      <input type="submit" name="Csettings" value="Save Changes" class="button button-primary"/>
 </form>
   </div>

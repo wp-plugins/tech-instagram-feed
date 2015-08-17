@@ -4,7 +4,7 @@ Donate link: http://techvers.com/
 Tags: tech Instagram Feed, Custom Instagram Feed, instagram, Instagram account, Instagram feed, Instagram photos, Instagram plugin, Instagram posts, Instagram stream, Instagram wall, mobile Instagram, responsive Instagram, gallery, instagram gallery,  responsive Instagram gallery, instagram plugin, instagram shortcode, instagram widget,  
 Requires at least: 3.5
 Tested up to: 4.2.4
-Stable tag: 1.0
+Stable tag: 1.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -24,6 +24,10 @@ Tech Instagram Feed plugin is  allows you to display photos from an account on y
 == Upgrade Notice == 
 1. Add number of images to display.
 2. Add display images type new or old.
+
+
+If you have any question contact us at here: [Plugin Support Forum ](https://wordpress.org/support/plugin/tech-instagram-feed) 
+
 
 == Installation ==
 
@@ -49,5 +53,10 @@ a. How to use Tech Instagram Feed plugin
 
 == Changelog ==
 
+= 1.1 =
+1. Added Feed sorting features.
+2. Added number of feeds to show initially. 
+
 = 1.0 =
 This version provides basic functionality to show instagram feeds with the help of shortcode [techinstagram] on pages.
+

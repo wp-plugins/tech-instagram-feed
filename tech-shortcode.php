@@ -12,6 +12,8 @@ wp_enqueue_style('techstyle',TECH_PLUGIN_URL.'lib/style/tech_style.css');
   $feed_section_height_unit = $tech_settings['tech_feed_height_unit'];
   $feed_section_width = $tech_settings['tech_feed_width'];
   $feed_section_width_unit = $tech_settings['tech_feed_width_unit'];
+  $FeedSortBy = $tech_settings['tech_feed_sortby'];
+  $FeedCount  = $tech_settings['tech_feed_number_feeds'];
   
   if($feed_section_width_unit == 'px' || $feed_section_height_unit == 'px' ){
 	  
@@ -19,7 +21,19 @@ wp_enqueue_style('techstyle',TECH_PLUGIN_URL.'lib/style/tech_style.css');
   }else{
 	  $overfllow = 'visible';
   }
- 
+  
+  // radom instagram feed
+ function shuffle_array($arr) {
+    if (!is_array($arr)) return $arr;
+    shuffle($arr);
+    foreach ($arr as $key => $a) {
+        if (is_array($a)) {
+            $arr[$key] = shuffle_array($a);
+        }
+    }
+
+    return $arr;
+}
   function TechInstagramData($url){
   $ch = curl_init();
     curl_setopt_array($ch, array(
@@ -45,8 +59,19 @@ wp_enqueue_style('techstyle',TECH_PLUGIN_URL.'lib/style/tech_style.css');
 	$resultuserdata = json_decode($resultuserdata);
  
 	 // get user media 
-	  $TechUserMedia = TechInstagramData("https://api.instagram.com/v1/users/$userId/media/recent/?client_id=$clientId&count=50");
+	  $TechUserMedia = TechInstagramData("https://api.instagram.com/v1/users/$userId/media/recent/?client_id=$clientId&count=$FeedCount");
 	  $TechUserMedia = json_decode($TechUserMedia);
+		$TechUserMedia = $TechUserMedia->data;
+	
+		if($FeedSortBy=='random'){	
+		$TechUserMedia =  shuffle_array($TechUserMedia);
+		}else if($FeedSortBy=='oldest'){
+			$TechUserMedia = array_reverse($TechUserMedia);
+		}
+
+	
+	
+  
   
   
  
@@ -64,10 +89,12 @@ echo '<div class="techinstagramlink-content" style="height:'.$feed_section_heigh
 <a class="techinstagram-panel-subscribe" href="http://instagram.com/'.$resultuserdata->data->username.'/" target="_blank">Follow</a> </div>
 <div style="padding:3px; margin-top:34px; overflow-x:'.$overfllow.'; background-color: '.$feed_background_color.'; height:'.$feed_section_height.''.$feed_section_height_unit.'; width:'.$feed_section_width.''.$feed_section_width_unit.'">';
   
-  foreach ($TechUserMedia->data as $post) {
+  foreach ($TechUserMedia as $post) {
+	  
+	  
     
         echo '<div class="instagram-unit"><a  target="blank" href="'.$post->link.'">
-        <img src="'.$post->images->standard_resolution->url.'">
+        <img src="'.$post->images->low_resolution->url.'">
      </a></div>';
    
 
