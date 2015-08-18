@@ -4,7 +4,7 @@ Donate link: http://techvers.com/
 Tags: tech Instagram Feed, Custom Instagram Feed, instagram, Instagram account, Instagram feed, Instagram photos, Instagram plugin, Instagram posts, Instagram stream, Instagram wall, mobile Instagram, responsive Instagram, gallery, instagram gallery,  responsive Instagram gallery, instagram plugin, instagram shortcode, instagram widget,  
 Requires at least: 3.5
 Tested up to: 4.2.4
-Stable tag: 1.1
+Stable tag: 1.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -16,14 +16,13 @@ Tech Instagram Feed plugin is  allows you to display photos from an account on y
 
 
 = Features =
-> * Easily add Instagram using the shortcode [techinstagram]
-> * Customize instagram feed area
-> * Display instagram on widget area
-> * Lots More to Come
+> * Easily add Instagram using the shortcode [techinstagram].
+> * Customize instagram feed area.
+> * Display instagram on widget area.
+> * Feed sorting features.
+> * Set number of feeds to show.
+> * Lots More to Come.
 
-== Upgrade Notice == 
-1. Add number of images to display.
-2. Add display images type new or old.
 
 
 If you have any question contact us at here: [Plugin Support Forum ](https://wordpress.org/support/plugin/tech-instagram-feed) 
@@ -38,11 +37,13 @@ If you have any question contact us at here: [Plugin Support Forum ](https://wor
 
 
 == Frequently Asked Questions ==
-a. How to use Tech Instagram Feed plugin
-1. Download Tech Instagram Feed Plugin.
-2. Upload the plugin folder to the /wp-content/plugins/ directory.
-3. Activate the plugin through the 'Plugins' menu in WordPress and Enjoy.
-4. Add shortcode [techinstagram] on any page or post and Enjoy.
+= 1. How to use Tech Instagram Feed plugin.
+
+ Activate plugin from plugin dashboard and go to in Tech Instagram Feed option panel set user name in General settings tab and then select design customization tab and settings according your need on site 
+
+ = 2. What is the minimum requirement to run the shortcode?. =
+ client id and user name is required for run shortcode [techinstagram] in page or post and widget area.
+
 
 
 
@@ -52,6 +53,9 @@ a. How to use Tech Instagram Feed plugin
 
 
 == Changelog ==
+
+= 1.2 =
+1.changes in read me file.
 
 = 1.1 =
 1. Added Feed sorting features.
