@@ -2,7 +2,7 @@
 /*
 Plugin Name: Tech Instagram Feed
 Description: This plugin allows to fetch the instagram media in your wordpress site.
-Version: 1.2
+Version: 1.3
 Author: Techvers
 Author URI: http://techvers.com/
 License: GPLv2 or later
@@ -72,7 +72,7 @@ function tech_instagram_output()
    
    
     $tech_settings['tech_client_id'] = $_POST['tech_client_id'];
-    $tech_settings['tech_user_name'] = $_POST['tech_user_name'];;
+    $tech_settings['tech_user_name'] = explode (",",$_POST['tech_user_name']);
         
         // update options
         update_option('tech_settings',$tech_settings);
@@ -88,7 +88,7 @@ function tech_instagram_output()
          
         <tr valign="top">
         <th scope="row"><label>User Name :</label></th>
-        <td><input type="text" id="tech_user_name" name="tech_user_name" value="<?php esc_attr_e($tech_settings['tech_user_name']); ?>" /></td>
+        <td><input type="text" id="tech_user_name" name="tech_user_name" value="<?php esc_attr_e(implode(",",$tech_settings['tech_user_name'])); ?>" /><span> add multiple user name seprate with comma (,).</span></td>
         </tr>
 		
        
@@ -114,6 +114,7 @@ $tech_settings['tech_feed_height'] = $_POST['tech_feed_height'];
 $tech_settings['tech_feed_height_unit'] = $_POST['tech_feed_height_unit'];
 $tech_settings['tech_feed_background_color'] = $_POST['tech_feed_background_color'];
 $tech_settings['tech_feed_number_feeds'] = $_POST['tech_feed_number_feeds'];
+$tech_settings['tech_feed_column'] = $_POST['tech_feed_column'];
 if (isset($_POST['sortby'])){	
  
   $tech_settings['tech_feed_sortby'] = $_POST['sortby'] ;
@@ -159,8 +160,29 @@ update_option('tech_settings',$tech_settings);
             </td>
 			<th scope="row"></label>Number of feeds:</label></th>
 			<td><input type="text" name="tech_feed_number_feeds" value="<?php esc_attr_e($tech_settings['tech_feed_number_feeds']); ?>">
-        </tr>
+        <br>
+		
+			<th scope="row"><label>Media Column:</label></th>
+            <td>
+                <select name="tech_feed_column" style="width:70%">
+                    <option value="1" <?php if($tech_settings['tech_feed_column'] == "1") echo 'selected="selected"' ?> ><?php _e('1'); ?></option>
+                    <option value="2" <?php if($tech_settings['tech_feed_column'] == "2") echo 'selected="selected"' ?> ><?php _e('2'); ?></option>
+					<option value="3" <?php if($tech_settings['tech_feed_column'] == "3") echo 'selected="selected"' ?> ><?php _e('3'); ?></option>
+                    <option value="4" <?php if($tech_settings['tech_feed_column'] == "4") echo 'selected="selected"' ?> ><?php _e('4'); ?></option>
+					<option value="5" <?php if($tech_settings['tech_feed_column'] == "5") echo 'selected="selected"' ?> ><?php _e('5'); ?></option>
+                    <option value="6" <?php if($tech_settings['tech_feed_column'] == "6") echo 'selected="selected"' ?> ><?php _e('6'); ?></option>
+					<option value="7" <?php if($tech_settings['tech_feed_column'] == "7") echo 'selected="selected"' ?> ><?php _e('7'); ?></option>
+                    <option value="8" <?php if($tech_settings['tech_feed_column'] == "8") echo 'selected="selected"' ?> ><?php _e('8'); ?></option>
+					<option value="9" <?php if($tech_settings['tech_feed_column'] == "9") echo 'selected="selected"' ?> ><?php _e('9'); ?></option>
+                    <option value="10" <?php if($tech_settings['tech_feed_column'] == "10") echo 'selected="selected"' ?> ><?php _e('10'); ?></option>
+                </select>
+            </td>
+		</tr>
+		
+		 
+		
         
+		
         <tr valign="top">
         <th scope="row"><label>Feed background color:</label></th>
             <td>
@@ -168,6 +190,8 @@ update_option('tech_settings',$tech_settings);
             </td>
         </tr>
 		
+       
+			
        
     </table>
 	

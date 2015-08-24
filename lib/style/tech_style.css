@@ -1,10 +1,22 @@
-.instagram-unit{width:25%;
+.instagram-unit{
+/*width:24.5%;*/
   padding: inherit !important;
   display: inline-block;
   margin: 0px !important;
   box-sizing: border-box;
   -webkit-box-sizing: border-box;
   }
+  .instagram-unit-col1{width:100%;}
+  .instagram-unit-col2{width:50%;}
+  .instagram-unit-col3{width:33%;}
+  .instagram-unit-col4{width:24.5%;}
+  .instagram-unit-col5{width:19.5%;}
+  .instagram-unit-col6{width:16.2%;}
+  .instagram-unit-col7{width:13.8%;}
+  .instagram-unit-col8{width:12%;}
+  .instagram-unit-col9{width:10.7%;}
+  .instagram-unit-col10{width:09.6%;}
+  
 img {max-width:100%;}
 
 
@@ -89,6 +101,7 @@ img {max-width:100%;}
 
 .techinstagram-panel {
     padding: 10px 0;
+	margin-bottom: 34px;
    
 }
 
