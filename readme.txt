@@ -1,5 +1,5 @@
 ﻿=== Tech Instagram Feed ===
-Contributors: techvers
+Contributors: Techvers
 Donate link: http://techvers.com/
 Tags: tech Instagram Feed, Custom Instagram Feed, instagram, Instagram account, Instagram feed, Instagram photos, Instagram plugin, Instagram posts, Instagram stream, Instagram wall, mobile Instagram, responsive Instagram, gallery, instagram gallery,  responsive Instagram gallery, instagram plugin, instagram shortcode, instagram widget,  
 Requires at least: 3.5
