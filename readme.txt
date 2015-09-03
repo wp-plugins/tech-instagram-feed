@@ -4,7 +4,7 @@ Donate link: http://techvers.com/
 Tags: tech Instagram Feed, Custom Instagram Feed, instagram, Instagram account, Instagram feed, Instagram photos, Instagram plugin, Instagram posts, Instagram stream, Instagram wall, mobile Instagram, responsive Instagram, gallery, instagram gallery,  responsive Instagram gallery, instagram plugin, instagram shortcode, instagram widget,  
 Requires at least: 3.5
 Tested up to: 4.2.4
-Stable tag: 1.3
+Stable tag: 1.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -23,6 +23,8 @@ Tech Instagram Feed plugin is  allows you to display photos from an account on y
 > * Feed sorting features.
 > * Customize media column.
 > * Set number of feeds to show.
+> * Load more button.
+> * user information.
 > * Lots More to Come.
 
 
@@ -59,6 +61,11 @@ If you have any question contact us at here: [Plugin Support Forum ](https://wor
 
 
 == Changelog ==
+
+=1.4=
+
+1. Added load more button.
+2. show and hide user information.
 
 = 1.3 =
 

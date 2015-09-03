@@ -2,7 +2,7 @@
 /*
 Plugin Name: Tech Instagram Feed
 Description: This plugin allows to fetch the instagram media in your wordpress site.
-Version: 1.3
+Version: 1.4
 Author: Techvers
 Author URI: http://techvers.com/
 License: GPLv2 or later
@@ -69,8 +69,6 @@ function tech_instagram_output()
   <?php if(isset($_POST['Gsettings'])){
 	  $tech_settings = array();
     $tech_settings = get_option('tech_settings');
-   
-   
     $tech_settings['tech_client_id'] = $_POST['tech_client_id'];
     $tech_settings['tech_user_name'] = explode (",",$_POST['tech_user_name']);
         
@@ -115,6 +113,7 @@ $tech_settings['tech_feed_height_unit'] = $_POST['tech_feed_height_unit'];
 $tech_settings['tech_feed_background_color'] = $_POST['tech_feed_background_color'];
 $tech_settings['tech_feed_number_feeds'] = $_POST['tech_feed_number_feeds'];
 $tech_settings['tech_feed_column'] = $_POST['tech_feed_column'];
+$tech_settings['tech_feed_header_information'] = $_POST['tech_feed_header_information'];
 if (isset($_POST['sortby'])){	
  
   $tech_settings['tech_feed_sortby'] = $_POST['sortby'] ;
@@ -187,6 +186,13 @@ update_option('tech_settings',$tech_settings);
         <th scope="row"><label>Feed background color:</label></th>
             <td>
                 <input type="text" name="tech_feed_background_color" value="<?php esc_attr_e($tech_settings['tech_feed_background_color']);?>" class="tech-color-field" />
+            </td>
+			 <th scope="row"><label>Show Header:</label></th>
+            <td>
+					 <select name="tech_feed_header_information">
+                    <option value="yes" <?php if($tech_settings['tech_feed_header_information'] == "yes") echo 'selected="selected"' ?> ><?php _e('Yes'); ?></option>
+                    <option value="no" <?php if($tech_settings['tech_feed_header_information'] == "no") echo 'selected="selected"' ?> ><?php _e('No'); ?></option>
+                </select>
             </td>
         </tr>
 		

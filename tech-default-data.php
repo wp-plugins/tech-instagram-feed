@@ -10,7 +10,8 @@ $tech_instagram = array(
     'tech_feed_background_color' => '#fff',
 	'tech_feed_sortby' => 'nosort',
 	'tech_feed_number_feeds' => '20',
-	'tech_feed_column' => '4'
+	'tech_feed_column' => '4',
+	'tech_feed_header_information' =>'yes'
     
     );
 
