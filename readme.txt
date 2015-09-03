@@ -62,7 +62,7 @@ If you have any question contact us at here: [Plugin Support Forum ](https://wor
 
 == Changelog ==
 
-=1.4=
+= 1.4 =
 
 1. Added load more button.
 2. show and hide user information.
