@@ -2,7 +2,7 @@
 /*
 Plugin Name: Tech Instagram Feed
 Description: This plugin allows to fetch the instagram media in your wordpress site.
-Version: 1.4.1
+Version: 1.6.1
 Author: Techvers
 Author URI: http://techvers.com/
 License: GPLv2 or later
@@ -53,7 +53,6 @@ function tech_instagram_admin_scripts() {
 		wp_enqueue_style( 'admin_style' ); 
     }
 
-
 function tech_instagram_output()
 {
 ?>
@@ -63,6 +62,7 @@ function tech_instagram_output()
  <ul class='etabs'>
    <li class='tab'><a href="#tabs1-Gsettings">General Settings</a></li>
    <li class='tab'><a href="#tabs1-Design">Design Customization</a></li>
+    <li class='tab'><a href="#tabs1-cssandjs">Custom css and js</a></li>
  </ul>
  <div class='panel-container'>
   <div id="tabs1-Gsettings">
@@ -85,8 +85,8 @@ function tech_instagram_output()
         </tr>
          
         <tr valign="top">
-        <th scope="row"><label>User Name :</label></th>
-        <td><input type="text" id="tech_user_name" name="tech_user_name" value="<?php esc_attr_e(implode(",",$tech_settings['tech_user_name'])); ?>" /><span> add multiple user name seprate with comma (,).</span></td>
+        <th scope="row"><label>User Id :</label></th>
+        <td><input type="text" id="tech_user_name" name="tech_user_name" value="<?php esc_attr_e(implode(",",$tech_settings['tech_user_name'])); ?>" /><span> add multiple user Id seprate with comma (,).</span></td>
         </tr>
 		
        
@@ -114,6 +114,8 @@ $tech_settings['tech_feed_background_color'] = $_POST['tech_feed_background_colo
 $tech_settings['tech_feed_number_feeds'] = $_POST['tech_feed_number_feeds'];
 $tech_settings['tech_feed_column'] = $_POST['tech_feed_column'];
 $tech_settings['tech_feed_header_information'] = $_POST['tech_feed_header_information'];
+$tech_settings['tech_media_resolution'] = $_POST['tech_media_resolution'];
+$tech_settings['tech_load_more_button_text'] = $_POST['tech_load_more_button_text'];
 if (isset($_POST['sortby'])){	
  
   $tech_settings['tech_feed_sortby'] = $_POST['sortby'] ;
@@ -187,6 +189,7 @@ update_option('tech_settings',$tech_settings);
             <td>
                 <input type="text" name="tech_feed_background_color" value="<?php esc_attr_e($tech_settings['tech_feed_background_color']);?>" class="tech-color-field" />
             </td>
+			
 			 <th scope="row"><label>Show Header:</label></th>
             <td>
 					 <select name="tech_feed_header_information">
@@ -194,7 +197,22 @@ update_option('tech_settings',$tech_settings);
                     <option value="no" <?php if($tech_settings['tech_feed_header_information'] == "no") echo 'selected="selected"' ?> ><?php _e('No'); ?></option>
                 </select>
             </td>
+			<th scope="row"><label>Media Resolution:</label></th>
+            <td>
+                <select name="tech_media_resolution" style="width:70%">
+                    <option value="Thumbnail" <?php if($tech_settings['tech_media_resolution'] == "Thumbnail") echo 'selected="selected"' ?> ><?php _e('Thumbnail'); ?></option>
+                   <option value="LowResolution" <?php if($tech_settings['tech_media_resolution'] == "LowResolution") echo 'selected="selected"' ?> ><?php _e('Medium'); ?></option>
+                    <option value="StandardResolution" <?php if($tech_settings['tech_media_resolution'] == "StandardResolution") echo 'selected="selected"' ?> ><?php _e('Standard'); ?></option>
+                </select>
+            </td>
+			 
         </tr>
+		<tr valign="top">
+			<th scope="row"><label>Load more button text:</label></th>
+            <td>
+           <input type="text" name="tech_load_more_button_text" value="<?php esc_attr_e($tech_settings['tech_load_more_button_text']); ?>">
+            </td>
+		</tr>
 		
        
 			
@@ -205,12 +223,53 @@ update_option('tech_settings',$tech_settings);
      <input type="submit" name="Csettings" value="Save Changes" class="button button-primary"/>
 </form>
   </div>
-  <!--<div id="tabs1-css">
-   <h2>CSS Styles for these tabs</h2>
+  <div id="tabs1-cssandjs">
+   <?php
+if(isset($_POST['CustomCssAndJs'])){
+$tech_settings = array();
+$tech_settings = get_option('tech_settings');
+$tech_settings['tech_insta_custom_css'] = $_POST['tech_insta_custom_css'];
+    $tech_settings['tech_insta_custom_js'] = $_POST['tech_insta_custom_js'];
+	update_option('tech_settings',$tech_settings);
+}
+?>
+
+<form  name="CustomCssAndJs" method="post"><?php $tech_settings = get_option('tech_settings'); ?>
+
+		<table class="form-table">
+			<tbody>
+				<tr valign="top">
+					<td style="padding-bottom: 0;">
+						<strong style="font-size: 15px;">Custom CSS</strong><br><strong style="font-size: 12px;"></td>
+				</tr>
+				<tr valign="top">
+					<td>
+						<textarea name="tech_insta_custom_css" id="tech_insta_custom_css"   style="width: 70%;" rows="7"><?php  esc_attr_e(stripslashes( $tech_settings['tech_insta_custom_css'])); ?></textarea>
+					</td>
+				</tr>
+				<tr valign="top">
+					<td style="padding-bottom: 0;">
+						<strong style="font-size: 15px;">Custom JavaScript</strong><br><strong style="font-size: 12px;"></td>
+				</tr>
+				<tr valign="top">
+					<td>
+						<textarea name="tech_insta_custom_js" id="tech_insta_custom_js"  style="width: 70%;" rows="7"><?php esc_attr_e(stripslashes( $tech_settings['tech_insta_custom_js'])); ?></textarea>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	
+ 
+
+    <input type="submit" name="CustomCssAndJs" value="Save Changes" class="button button-primary"/>
+	
+	
+	
+</form> 
 
   
 
-  </div>-->
+  </div>
  </div>
 </div>
 

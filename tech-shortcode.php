@@ -1,5 +1,40 @@
 <?php
 function tech_shortcode_function(){
+add_action( 'wp_footer', 'tech_custom_css' );
+function tech_custom_css() {
+							$tech_settings = get_option('tech_settings');
+							$CustomStyle = $tech_settings[ 'tech_insta_custom_css' ];
+							if( !empty($CustomStyle) ) echo '<!-- Tech intagram Custom css -->';
+							if( !empty($CustomStyle) ) echo "\r\n";
+							if( !empty($CustomStyle) ) echo '<style type="text/css">';
+							if( !empty($CustomStyle) ) echo "\r\n";
+							if( !empty($CustomStyle) ) echo stripslashes($CustomStyle);
+							if( !empty($CustomStyle) ) echo "\r\n";
+							if( !empty($CustomStyle) ) echo '</style>';
+							if( !empty($CustomStyle) ) echo "\r\n";
+								
+							}
+			
+			
+add_action( 'wp_footer', 'tech_custom_js' );
+function tech_custom_js() {
+							 $tech_settings = get_option('tech_settings');
+							 $CustomJs = $tech_settings[ 'tech_insta_custom_js' ];
+							if( !empty($CustomJs) ) echo '<!-- Tech Instagram JS -->';
+							if( !empty($CustomJs) ) echo "\r\n";
+							if( !empty($CustomJs) ) echo '<script type="text/javascript">';
+							if( !empty($CustomJs) ) echo "\r\n";
+							if( !empty($CustomJs) ) echo "jQuery( document ).ready(function($) {";
+							if( !empty($CustomJs) ) echo "\r\n";
+							if( !empty($CustomJs) ) echo "\r\n";
+							if( !empty($CustomJs) ) echo stripslashes($CustomJs);
+							if( !empty($CustomJs) ) echo "\r\n";
+							if( !empty($CustomJs) ) echo "\r\n";
+							if( !empty($CustomJs) ) echo "});";
+							if( !empty($CustomJs) ) echo "\r\n";
+							if( !empty($CustomJs) ) echo '</script>';
+							if( !empty($CustomJs) ) echo "\r\n";
+						}		
 
 wp_enqueue_style('techstyle',TECH_PLUGIN_URL.'lib/style/tech_style.css');
 	
@@ -16,6 +51,9 @@ wp_enqueue_style('techstyle',TECH_PLUGIN_URL.'lib/style/tech_style.css');
   $FeedCount  = $tech_settings['tech_feed_number_feeds'];
   $FeedLayout = $tech_settings['tech_feed_column'];
   $UserHeader = $tech_settings['tech_feed_header_information'];
+  $MediaResolution  = $tech_settings['tech_media_resolution'];
+  $LodMoreButtonText = $tech_settings['tech_load_more_button_text'];
+  
   if($feed_section_width_unit == 'px' || $feed_section_height_unit == 'px' ){
 	  
 	 $overfllow = 'hidden';
@@ -80,7 +118,7 @@ wp_enqueue_style('techstyle',TECH_PLUGIN_URL.'lib/style/tech_style.css');
 	$resultid = TechInstagramData("https://api.instagram.com/v1/users/search?q=$user&client_id=$clientId");
 	$resultid = json_decode($resultid);
 	$userId = $resultid->data[0]->id;
-	
+
 	// get user media 
 		$TechUserMedia = TechInstagramData("https://api.instagram.com/v1/users/$userId/media/recent/?client_id=$clientId&count=$FeedCount");
 		$TechUserMedia = json_decode($TechUserMedia);
@@ -108,7 +146,7 @@ wp_enqueue_style('techstyle',TECH_PLUGIN_URL.'lib/style/tech_style.css');
 <span class="techinstagram-panel-following techinstagram-panel-counter"> <i class="techinstagram-panel-counter-value"> <?php echo $resultuserdata->data->counts->follows;?></i> 
 <span class="techinstagram-panel-counter-label">following</span> </span> 
 <a class="techinstagram-panel-subscribe" href="http://instagram.com/<?php echo $resultuserdata->data->username;?>" target="_blank">Follow</a> </div><?php }?>
-<div class="tech_insta_feed" style="padding:3px; overflow-x:<?php echo $overfllow;?> background-color:<?php echo $feed_background_color;?> height:<?php echo $feed_section_height.$feed_section_height_unit;?> width:<?php echo $feed_section_width.$feed_section_width_unit;?>">
+<div class="tech_insta_feed" style="padding:3px; overflow-x:<?php echo $overfllow;?>; background-color:<?php echo $feed_background_color;?>; height:<?php echo $feed_section_height.$feed_section_height_unit;?>; width:<?php echo $feed_section_width.$feed_section_width_unit;?>;">
 <?php	
 	}	
 		if($FeedSortBy=='random'){	
@@ -117,45 +155,54 @@ wp_enqueue_style('techstyle',TECH_PLUGIN_URL.'lib/style/tech_style.css');
 			$TechUserMedia = array_reverse($TechUserMedia);
 		}
 
-  foreach ($TechUserMedia as $post) {?>
+  foreach ($TechUserMedia as $post) {
+		if($MediaResolution == 'Thumbnail'){
+			$MediaResolutionUrl = $post->images->thumbnail->url;
+		}else if($MediaResolution == 'LowResolution'){
+			$MediaResolutionUrl = $post->images->low_resolution->url;
+		}else if($MediaResolution == 'StandardResolution'){
+			$MediaResolutionUrl = $post->images->standard_resolution->url;
+		}
+	  ?>
        <div class="instagram-unit <?php echo $MediaWidth; ?>"><a  target="blank" href="<?php echo $post->link ?>">
-        <img src="<?php echo $post->images->low_resolution->url;?>">
+        <img src="<?php echo $MediaResolutionUrl; ?>">
      </a></div><?php
    
 
   }
   if($i == sizeof($user_name)){?>
+  <div class="loadbutton">
+  <input type="button" class="flowbutton" onClick="InstaPagination()" value='<?php echo $LodMoreButtonText; ?>'>
+  </div>
   </div></div>
-  <input type="button" class="flowbutton" onClick="InstaPagination()" value='Load more'>
+  
 
   <?php
-  }
- 
-  foreach($NextUrl as $MediaUrl){
-	  
-  if($MediaUrl == ''){
-	  $k++;
-	  {
-		  
-		  if($k == sizeof($user_name))
-		  {
-			  ?><script>jQuery('.flowbutton').css("visibility", "hidden");	</script><?php
-		  }
-	  }
-	  
-  }}
+  } 
   $i++;
-	$InstaSettings = array(
+ }
+ 
+ $InstaSettings = array(
 	    "Pagination" => $NextUrl,
-	    "MediaWidth" => $MediaWidth
+	    "MediaWidth" => $MediaWidth,
+		"MediaFeedSortBy" => $FeedSortBy,
+		"MediaResolution" => $MediaResolution
 	  );
  
     wp_register_script( "scripts", plugin_dir_url( __FILE__ ) . "lib/js/tech-instagram-js.js" );
     wp_enqueue_script( "scripts" );
     wp_localize_script( "scripts", "TechInstagram", $InstaSettings );
-
-
- }
+ 
+ foreach($NextUrl as $MediaUrl){
+	 
+  if(str_word_count($MediaUrl)==0){
+	 $k++;
+	if($k == sizeof($user_name)) {
+	 ?><script>jQuery('.flowbutton').css("visibility", "hidden");	</script><?php
+	 }}
+	  
+  }
+  
 }// end shortcode
 add_shortcode('techinstagram','tech_shortcode_function')
 ?>

@@ -1,3 +1,5 @@
+.loadbutton{position:relative;left:50%;
+}
 .instagram-unit{
 /*width:24.5%;*/
   padding: inherit !important;
@@ -8,31 +10,19 @@
   }
   .instagram-unit-col1{width:100%;}
   .instagram-unit-col2{width:50%;}
-  .instagram-unit-col3{width:33%;}
-  .instagram-unit-col4{width:24.5%;}
-  .instagram-unit-col5{width:19.5%;}
-  .instagram-unit-col6{width:16.2%;}
+  .instagram-unit-col3{width:32.9%;}
+  .instagram-unit-col4{width:24.4%;}
+  .instagram-unit-col5{width:19.3%;}
+  .instagram-unit-col6{width:16%;}
   .instagram-unit-col7{width:13.8%;}
   .instagram-unit-col8{width:12%;}
   .instagram-unit-col9{width:10.7%;}
-  .instagram-unit-col10{width:09.6%;}
-  
+  .instagram-unit-col10{width:09.6%;} 
 img {max-width:100%;}
-
-
-
 .techinstagram_fixed_width {  overflow-x: hidden; }
 
-.techinstagram-header {
-    background-color: #dd5454;
-}
-
-.techinstagram a {
-    /* border: 0; */
-    /* outline: 0; */
-    text-decoration: none;
-}
-
+.techinstagram-header {background-color: #dd5454;}
+.techinstagram a {text-decoration: none;}
 .techinstagram-header {
     display: block;
      position: relative; 
@@ -42,37 +32,21 @@ img {max-width:100%;}
     text-decoration: none;
     transition: all .3s ease;
 }
-
-.techinstagram * {
-    /* margin: 0; */
-    padding: 0;
-}
-
-
-.entry-content a img, .entry-summary a img, .page-content a img, .comment-content a img {
-    display: block;
-}
-
-
+.techinstagram * {padding: 0;}
+.entry-content a img, .entry-summary a img, .page-content a img, .comment-content a img {display: block;}
 .techinstagram img, .techinstagram a img {
     margin: 0;
     padding: 0;
     border: 0;
     outline: 0;
 }
-
-
 .techinstagram-header-pic {
     display: block;
     float: left;
     width: 34px;
     height: 34px;
 }
-
-.techinstagram-header-name, a.techinstagram-panel-subscribe {
-    color: #fff;
-}
-
+.techinstagram-header-name, a.techinstagram-panel-subscribe {color: #fff;}
 .techinstagram-header-name {
     display: block;
    /*float: left;*/
@@ -87,7 +61,6 @@ img {max-width:100%;}
     font-size: 14px;
     color: #fff;
 }
-
 .techinstagram-header-logo {
     display: block;
     position: absolute;
@@ -97,30 +70,19 @@ img {max-width:100%;}
     height: 18px;
     background: url('../images/instagram-logo.png') no-repeat;
 }
-
-
-.techinstagram-panel {
-    padding: 10px 0;
-	margin-bottom: 34px;
-   
-}
-
-
+.techinstagram-panel {padding: 10px 0;margin-bottom: 34px;}
 .techinstagram-panel-counter {
     display: block;
     float: left;
     width: 54px;
     text-align: center;
 }
-
 .techinstagram-panel-counter-value {
     display: block;
     font-style: normal;
     font-weight: 700;
     font-size: 13px;
 }
-
-
 .techinstagram-panel-counter-label {
     display: block;
     overflow: hidden;
@@ -130,23 +92,18 @@ img {max-width:100%;}
     white-space: nowrap;
     color: #727272;
 }
-
-
 .techinstagram-panel-counter {
     display: block;
     float: left;
     width: 54px;
     text-align: center;
 }
-
-
 .techinstagram-panel-counter-value {
     display: block;
     font-style: normal;
     font-weight: 700;
     font-size: 13px;
 }
-
 .techinstagram-panel-counter-label {
     display: block;
     overflow: hidden;
@@ -159,22 +116,18 @@ img {max-width:100%;}
     -webkit-font-smoothing: antialiased;
     -webkit-user-select: none;
 }
-
-
 .techinstagram-panel-counter {
     display: block;
     float: left;
     width: 54px;
     text-align: center;
 }
-
 .techinstagram-panel-counter-value {
     display: block;
     font-style: normal;
     font-weight: 700;
     font-size: 13px;
 }
-
 .techinstagram-panel-counter-label {
     display: block;
     overflow: hidden;
@@ -187,15 +140,7 @@ img {max-width:100%;}
     -webkit-font-smoothing: antialiased;
     -webkit-user-select: none;
 }
-
-
-.subscribe {
-    color: #fff;
-}
-
-
-
-
+.subscribe {color: #fff;}
 .techinstagram-panel-subscribe {
     display: inline-block;
     float: right;
