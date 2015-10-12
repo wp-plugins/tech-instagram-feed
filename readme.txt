@@ -68,7 +68,7 @@ If you have any question contact us at here: [Plugin Support Forum ](https://wor
 
 = 1.6.1 =
 
-1. Added custom css and js featurebox.
+1. Added custom css and js box.
 
 = 1.6 = 
 
