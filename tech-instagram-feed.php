@@ -2,7 +2,7 @@
 /*
 Plugin Name: Tech Instagram Feed
 Description: This plugin allows to fetch the instagram media in your wordpress site.
-Version: 1.6.1
+Version: 1.6.2
 Author: Techvers
 Author URI: http://techvers.com/
 License: GPLv2 or later

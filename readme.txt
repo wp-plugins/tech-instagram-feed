@@ -4,7 +4,7 @@ Donate link: http://techvers.com/
 Tags: tech Instagram Feed, Custom Instagram Feed, instagram, Instagram account, Instagram feed, Instagram photos, Instagram plugin, Instagram posts, Instagram stream, Instagram wall, mobile Instagram, responsive Instagram, gallery, instagram gallery,  responsive Instagram gallery, instagram plugin, instagram shortcode, instagram widget,  
 Requires at least: 3.5
 Tested up to: 4.3
-Stable tag: 1.6.1
+Stable tag: 1.6.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -31,7 +31,9 @@ if you have any issue and suggestion pls contact on techvers07@gmail.com its rea
 > * Custom css and js box
 > * Lots More to Come.
 
+= premium Version =
 
+> * Coming Soon .
 
 If you have any question contact us at here: [Plugin Support Forum ](https://wordpress.org/support/plugin/tech-instagram-feed) 
 
@@ -66,9 +68,13 @@ If you have any question contact us at here: [Plugin Support Forum ](https://wor
 
 == Changelog ==
 
+= 1.6.2 =
+
+1. Small changes in readme file.
+
 = 1.6.1 =
 
-1. Added custom css and js box.
+1. Added custom css and js featurebox.
 
 = 1.6 = 
 
